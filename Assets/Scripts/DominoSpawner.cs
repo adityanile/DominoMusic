@@ -18,11 +18,18 @@ public class DominoSpawner : MonoBehaviour
     [SerializeField]
     private float dominoOffset = 0.7f;
 
+    public AudioClip[] babySharkTune;
+
     public Transform allDominos;
     private Transform currentParent;
     private int count = 0;
 
     public List<Color32> colors;
+
+    private void Start()
+    {
+        babySharkTune = Resources.LoadAll<AudioClip>("BabyShark/");
+    }
 
     // Update is called once per frame
     void Update()
@@ -74,6 +81,8 @@ public class DominoSpawner : MonoBehaviour
 
     IEnumerator SpawnDominos(int currentIndex)
     {
+        int tuneCount = 0;
+
         while(spawning)
         {
             yield return new WaitForSeconds(spawnRate);
@@ -81,8 +90,11 @@ public class DominoSpawner : MonoBehaviour
             cp = new Vector3(cp.x + dominoOffset ,cp.y,cp.z);
             GameObject inst = Instantiate(domino, cp, Quaternion.identity, currentParent);
 
-            int colorIndex = currentIndex % colors.Count;
+            int colorIndex = Random.Range(0, colors.Count);
             inst.GetComponent<MeshRenderer>().material.color = colors[colorIndex];
+
+            int tuneIndex = tuneCount++ % babySharkTune.Length;
+            inst.GetComponent<AudioSource>().clip = babySharkTune[tuneIndex];
         }
     }
 

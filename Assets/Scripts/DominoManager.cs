@@ -8,10 +8,12 @@ public class DominoManager : MonoBehaviour
     private Rigidbody rb;
 
     Vector3 hitPos;
+    AudioSource audioSource;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 
         Vector3 trans = transform.position;
         float yoff = transform.localScale.y - 0.1f;
@@ -30,8 +32,9 @@ public class DominoManager : MonoBehaviour
         {
             DominoManager dm = collision.gameObject.GetComponent<DominoManager>();
             dm.MakeItFall();
-        }
 
-        // Make the Music Play Here
+            // Make the Music Play Here
+            audioSource.Play();
+        }
     }
 }

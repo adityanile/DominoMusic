@@ -155,7 +155,8 @@ MonoBehaviour:
   domino: {fileID: 8450500064376993578, guid: e8c15257613e4b74487fba64dc462d78, type: 3}
   spawnRate: 0.1
   yOffset: 1
-  dominoOffset: 0.8
+  dominoOffset: 1
+  babySharkTune: []
   allDominos: {fileID: 297428299}
   colors:
   - serializedVersion: 2
@@ -164,6 +165,22 @@ MonoBehaviour:
     rgba: 16080367
   - serializedVersion: 2
     rgba: 7791615
+  - serializedVersion: 2
+    rgba: 7468914
+  - serializedVersion: 2
+    rgba: 14483318
+  - serializedVersion: 2
+    rgba: 16764534
+  - serializedVersion: 2
+    rgba: 16744310
+  - serializedVersion: 2
+    rgba: 16742067
+  - serializedVersion: 2
+    rgba: 11433727
+  - serializedVersion: 2
+    rgba: 7777535
+  - serializedVersion: 2
+    rgba: 7798749
 --- !u!4 &209669593
 Transform:
   m_ObjectHideFlags: 0
@@ -365,7 +382,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.91
+  orthographic size: 4.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -390,7 +407,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -5.24, y: 4.18, z: -4.96}
+  m_LocalPosition: {x: -5.24, y: 7.12, z: -4.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -497,7 +514,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
