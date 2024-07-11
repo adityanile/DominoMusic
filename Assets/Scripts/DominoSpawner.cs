@@ -19,6 +19,7 @@ public class DominoSpawner : MonoBehaviour
     private float dominoOffset = 0.7f;
 
     public AudioClip[] babySharkTune;
+    public AudioClip[] MITunes;
 
     public Transform allDominos;
     private Transform currentParent;
@@ -29,6 +30,7 @@ public class DominoSpawner : MonoBehaviour
     private void Start()
     {
         babySharkTune = Resources.LoadAll<AudioClip>("BabyShark/");
+        MITunes = Resources.LoadAll<AudioClip>("MITunes/");
     }
 
     // Update is called once per frame
@@ -82,8 +84,9 @@ public class DominoSpawner : MonoBehaviour
     IEnumerator SpawnDominos(int currentIndex)
     {
         int tuneCount = 0;
+        int songIndex = currentIndex % 2;
 
-        while(spawning)
+        while (spawning)
         {
             yield return new WaitForSeconds(spawnRate);
 
@@ -93,8 +96,17 @@ public class DominoSpawner : MonoBehaviour
             int colorIndex = Random.Range(0, colors.Count);
             inst.GetComponent<MeshRenderer>().material.color = colors[colorIndex];
 
-            int tuneIndex = tuneCount++ % babySharkTune.Length;
-            inst.GetComponent<AudioSource>().clip = babySharkTune[tuneIndex];
+            if(songIndex == 0)
+            {
+                int tuneIndex = tuneCount++ % babySharkTune.Length;
+                inst.GetComponent<AudioSource>().clip = babySharkTune[tuneIndex];
+            }
+            else
+            {
+                int tuneIndex = tuneCount++ % babySharkTune.Length;
+                inst.GetComponent<AudioSource>().clip = MITunes[tuneIndex];
+            }
+
         }
     }
 
