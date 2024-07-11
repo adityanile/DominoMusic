@@ -9,11 +9,20 @@ public class DominoSpawner : MonoBehaviour
     public GameObject domino;
 
     private bool spawning = false;
-
+ 
     [SerializeField]
     private float spawnRate = 1f;
     [SerializeField]
     private float yOffset = 0.5f;
+
+    [SerializeField]
+    private float dominoOffset = 0.7f;
+
+    public Transform allDominos;
+    private Transform currentParent;
+    private int count = 0;
+
+    public List<Color32> colors;
 
     // Update is called once per frame
     void Update()
@@ -26,47 +35,69 @@ public class DominoSpawner : MonoBehaviour
             {
                 Vector3 pos = touch.position;
                 cp = GetWorldPosition(pos);
+
+                Ray ray = Camera.main.ScreenPointToRay(pos);
+                RaycastHit hit;
+
+                if(Physics.Raycast(ray, out hit) )
+                {
+                    if (hit.collider.CompareTag("Domino"))
+                    {
+                        DominoManager dm = hit.collider.GetComponent<DominoManager>();
+                        dm.MakeItFall();
+                        return;
+                    }
+                }
                 
                 spawning = true;
-                StartCoroutine(SpawnDominos());
-            }
-            else if(touch.phase == TouchPhase.Moved)
-            {
-                Vector3 pos = touch.position;
-                cp = GetWorldPosition(pos);
+                
+                GameObject curr = new GameObject(count.ToString());
+                curr.transform.parent = allDominos;
+                currentParent = curr.transform;
 
+                StartCoroutine(SpawnDominos(count));
             }
             else if(touch.phase == TouchPhase.Ended)
             {
-                StopCoroutine(SpawnDominos());
-                spawning = false;
+                if (spawning)
+                {
+                    StopCoroutine(SpawnDominos(count));
+                    spawning = false;
+                    
+                    count++;
+                }
+
             }
           
+        }
+    }
+
+    IEnumerator SpawnDominos(int currentIndex)
+    {
+        while(spawning)
+        {
+            yield return new WaitForSeconds(spawnRate);
+
+            cp = new Vector3(cp.x + dominoOffset ,cp.y,cp.z);
+            GameObject inst = Instantiate(domino, cp, Quaternion.identity, currentParent);
+
+            int colorIndex = currentIndex % colors.Count;
+            inst.GetComponent<MeshRenderer>().material.color = colors[colorIndex];
         }
     }
 
     Vector3 GetWorldPosition(Vector3 pos)
     {
         Ray ray = Camera.main.ScreenPointToRay(pos);
-        
+
         RaycastHit hit;
         Vector3 ret = new Vector3();
-        
+
         if (Physics.Raycast(ray, out hit))
         {
             ret = hit.point;
         }
 
-        return new Vector3(ret.x,yOffset, ret.z);
-    }
-
-    IEnumerator SpawnDominos()
-    {
-        while(spawning)
-        {
-            yield return new WaitForSeconds(spawnRate);
-
-            Instantiate(domino, cp, Quaternion.identity);
-        }
+        return new Vector3(ret.x, yOffset, ret.z);
     }
 }

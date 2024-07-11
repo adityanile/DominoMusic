@@ -152,9 +152,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6909151d8c7f61e4d9c61c68c09cda9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  domino: {fileID: 6544498333043200973, guid: 5942bdb4564caf54fabc8ca8fdebede2, type: 3}
-  spawnRate: 0.3
-  yOffset: 0.5
+  domino: {fileID: 8450500064376993578, guid: e8c15257613e4b74487fba64dc462d78, type: 3}
+  spawnRate: 0.1
+  yOffset: 1
+  dominoOffset: 0.8
+  allDominos: {fileID: 297428299}
+  colors:
+  - serializedVersion: 2
+    rgba: 6382076
+  - serializedVersion: 2
+    rgba: 16080367
+  - serializedVersion: 2
+    rgba: 7791615
 --- !u!4 &209669593
 Transform:
   m_ObjectHideFlags: 0
@@ -162,6 +171,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209669591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &297428298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297428299}
+  m_Layer: 0
+  m_Name: AllDominos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297428299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297428298}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -470,3 +510,4 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1391805339}
   - {fileID: 209669593}
+  - {fileID: 297428299}
