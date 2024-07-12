@@ -10,6 +10,8 @@ public class DominoManager : MonoBehaviour
     Vector3 hitPos;
     AudioSource audioSource;
 
+    public GameObject lookAt;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,6 +21,12 @@ public class DominoManager : MonoBehaviour
         float yoff = transform.localScale.y - 0.1f;
 
         hitPos = new Vector3(trans.x, yoff, trans.z);
+    }
+
+    private void Update()
+    {
+        //if (lookAt)
+        //transform.LookAt(lookAt.transform);
     }
 
     public void MakeItFall()

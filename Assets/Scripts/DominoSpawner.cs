@@ -90,7 +90,7 @@ public class DominoSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnRate);
 
-            cp = new Vector3(cp.x + dominoOffset ,cp.y,cp.z);
+            cp = new Vector3(cp.x + dominoOffset,cp.y,cp.z);
             GameObject inst = Instantiate(domino, cp, Quaternion.identity, currentParent);
 
             int colorIndex = Random.Range(0, colors.Count);
