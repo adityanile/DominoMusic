@@ -707,10 +707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcda68e55b43af4892bb358a91f5f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  domino: {fileID: 8450500064376993578, guid: e8c15257613e4b74487fba64dc462d78, type: 3}
+  domino: {fileID: 7298797453625673927, guid: c6604a21ebb8e974d8444ace0aa21ac0, type: 3}
   tolorence: 0.2
   spawnRate: 0.01
-  dominoOffset: 0.9
+  dominoOffset: 0.7
   allDominos: {fileID: 297428299}
   count: 0
   colors:

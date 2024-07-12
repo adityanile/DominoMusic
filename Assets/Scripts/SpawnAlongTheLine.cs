@@ -96,8 +96,12 @@ public class SpawnAlongTheLine : MonoBehaviour
 
     void SpawnDomino(Vector3 pos)
     {
-        GameObject inst = Instantiate(domino, pos, Quaternion.identity, currentParent);
-        inst.GetComponent<DominoManager>().lookAt = lp;
+        GameObject i = Instantiate(domino, pos, domino.transform.rotation, currentParent);
+       
+        if(lp)
+        i.transform.LookAt(lp.transform);
+
+        GameObject inst = i.transform.GetChild(0).gameObject; 
 
         int colorIndex = UnityEngine.Random.Range(0, colors.Count);
         inst.GetComponent<MeshRenderer>().material.color = colors[colorIndex];

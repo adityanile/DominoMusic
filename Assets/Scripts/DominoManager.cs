@@ -10,8 +10,6 @@ public class DominoManager : MonoBehaviour
     Vector3 hitPos;
     AudioSource audioSource;
 
-    public GameObject lookAt;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,15 +21,10 @@ public class DominoManager : MonoBehaviour
         hitPos = new Vector3(trans.x, yoff, trans.z);
     }
 
-    private void Update()
-    {
-        //if (lookAt)
-        //transform.LookAt(lookAt.transform);
-    }
-
     public void MakeItFall()
     {
-        rb.AddForceAtPosition(new Vector3(force,0,0), hitPos,ForceMode.Impulse);
+        Vector3 dir = -transform.parent.forward;
+        rb.AddForceAtPosition(dir * force, hitPos ,ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)
