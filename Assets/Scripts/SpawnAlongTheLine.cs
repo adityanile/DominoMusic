@@ -23,7 +23,7 @@ public class SpawnAlongTheLine : MonoBehaviour
     public List<Color32> colors;
     private Vector3[] positions;
 
-    public AudioClip[] babySharkTune;
+    public List<AudioClip> tunes = new();
     int tuneCount = 0;
 
     GameObject lp;
@@ -31,7 +31,6 @@ public class SpawnAlongTheLine : MonoBehaviour
     public void StartSpawn()
     {
         line = GameObject.Find("ReferenceLine").GetComponent<LineRenderer>();
-        babySharkTune = Resources.LoadAll<AudioClip>("BabyShark/");
 
         line.Simplify(tolorence);
 
@@ -106,10 +105,16 @@ public class SpawnAlongTheLine : MonoBehaviour
         int colorIndex = UnityEngine.Random.Range(0, colors.Count);
         inst.GetComponent<MeshRenderer>().material.color = colors[colorIndex];
 
-        int tuneIndex = tuneCount++ % babySharkTune.Length;
-        inst.GetComponent<AudioSource>().clip = babySharkTune[tuneIndex];
+        int tuneIndex = tuneCount++ % tunes.Count;
+        inst.GetComponent<AudioSource>().clip = tunes[tuneIndex];
 
         lp = inst;
+
+        // Reverse the list to avoid abruptness in the tune
+        if(tuneCount % tunes.Count == 0)
+        {
+            tunes.Reverse();
+        }
     }
 
     Vector3 GetNextPoint(Vector3 a, Vector3 b, int n)
