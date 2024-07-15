@@ -110,11 +110,6 @@ public class SpawnAlongTheLine : MonoBehaviour
 
         lp = inst;
 
-        // Reverse the list to avoid abruptness in the tune
-        if(tuneCount % tunes.Count == 0)
-        {
-            tunes.Reverse();
-        }
     }
 
     Vector3 GetNextPoint(Vector3 a, Vector3 b, int n)

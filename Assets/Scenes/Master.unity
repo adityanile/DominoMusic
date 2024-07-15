@@ -281,80 +281,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &209669591
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 209669593}
-  - component: {fileID: 209669592}
-  m_Layer: 0
-  m_Name: DominoSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &209669592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209669591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6909151d8c7f61e4d9c61c68c09cda9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  domino: {fileID: 8450500064376993578, guid: e8c15257613e4b74487fba64dc462d78, type: 3}
-  spawnRate: 0.1
-  yOffset: 1
-  dominoOffset: 1
-  babySharkTune: []
-  MITunes: []
-  allDominos: {fileID: 297428299}
-  colors:
-  - serializedVersion: 2
-    rgba: 6382076
-  - serializedVersion: 2
-    rgba: 16080367
-  - serializedVersion: 2
-    rgba: 7791615
-  - serializedVersion: 2
-    rgba: 7468914
-  - serializedVersion: 2
-    rgba: 14483318
-  - serializedVersion: 2
-    rgba: 16764534
-  - serializedVersion: 2
-    rgba: 16744310
-  - serializedVersion: 2
-    rgba: 16742067
-  - serializedVersion: 2
-    rgba: 11433727
-  - serializedVersion: 2
-    rgba: 7777535
-  - serializedVersion: 2
-    rgba: 7798749
---- !u!4 &209669593
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209669591}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297428298
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFromOctave: 4
+  endFromOctave: 8
   alpha:
   - A
   - B
@@ -1130,7 +1057,6 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1391805339}
-  - {fileID: 209669593}
   - {fileID: 297428299}
   - {fileID: 63190470}
   - {fileID: 2011730912}

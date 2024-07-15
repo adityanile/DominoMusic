@@ -6,6 +6,7 @@ public class PianoNotes : MonoBehaviour
     AudioClip[] allTunes;
 
     public int startFromOctave = 1;
+    public int endFromOctave = 8;
 
     public string[] alpha;
     public List<AudioClip> order = new List<AudioClip>();
@@ -17,7 +18,7 @@ public class PianoNotes : MonoBehaviour
     {
         allTunes = Resources.LoadAll<AudioClip>("pianoNotes/");
 
-        for (int i = startFromOctave; i < 8; i++)
+        for (int i = startFromOctave; i < endFromOctave; i++)
         {   
             for (int j = 0; j < alpha.Length; j++)
             {
@@ -25,6 +26,7 @@ public class PianoNotes : MonoBehaviour
                 order.Add( Find(str) );
             }
         }
+        order.Reverse();
         spawn.tunes = order;
     }
 

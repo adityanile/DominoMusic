@@ -10,6 +10,8 @@ public class DominoManager : MonoBehaviour
     Vector3 hitPos;
     AudioSource audioSource;
 
+    private bool played = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -33,9 +35,14 @@ public class DominoManager : MonoBehaviour
         {
             DominoManager dm = collision.gameObject.GetComponent<DominoManager>();
             dm.MakeItFall();
+            
+            if (!played)
+            {
+                played = true;
 
-            // Make the Music Play Here
-            audioSource.Play();
+                // Make the Music Play Here
+                audioSource.Play();
+            }
         }
     }
 }
